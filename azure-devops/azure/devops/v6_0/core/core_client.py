@@ -138,7 +138,7 @@ class CoreClient(Client):
 
         response_value = self._deserialize('[TeamMember]', self._unwrap_collection(response))
         continuation_token = self._get_continuation_token(response)
-        return DetailedResponse(response_value, continuation_token)
+        return FullResponse(DetailedResponse(response_value, continuation_token), response)
 
     def get_process_by_id(self, process_id):
         """GetProcessById.
